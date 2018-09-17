@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>单独通信</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
+    <script src="/webjars/jquery/jquery.min.js"></script>
+    <script src="/webjars/sockjs-client/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/stomp.min.js"></script>
+    <script src="/private.js"></script>
+</head>
+<body>
+<div id="main-content" class="container">
+    <div class="row" style="font-style:normal;color: red;">
+        <label id="sayHello"></label>
+    </div>
+    <div class="row">
+        <div class="col-md-6" >
+
+            <div class="row">
+                <table id="conversation1" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>聊天窗口</th>
+                    </tr>
+                    </thead>
+                    <tbody id="chartWin1">
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="chart1">张老师</label>
+                        <input type="text" id="chart1" class="form-control" placeholder="请输入">
+                    </div>
+                    <button id="send1" class="btn btn-default" type="submit">发送</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+
+            <div class="row">
+                <table id="conversation2" class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>聊天窗口</th>
+                    </tr>
+                    </thead>
+                    <tbody id="chartWin2" >
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <form class="form-inline">
+                    <div class="form-group">
+                        <label for="chart2">小明</label>
+                        <input type="text" id="chart2" class="form-control" placeholder="请输入">
+                    </div>
+                    <button id="send2" class="btn btn-default" type="submit">发送</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
