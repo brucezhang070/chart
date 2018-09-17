@@ -57,33 +57,29 @@ public class ChartProducer{
                         } catch (MQClientException e) {
                             e.printStackTrace();
                         }
-                        //while (true){
+                        while (true){
                             //producer.createTopic("key_","PushTopic",i);
                             try {
                                 Document doc = Jsoup.connect("https://news.baidu.com/").get();
                                 Elements ListDiv = doc.getElementsByTag("li");
                                 for (int j = 0 ; j < ListDiv.size(); j++) {
-
                                     Element td = ListDiv.get(j);
-
                                     String messageBody = td.getElementsByTag("a").text();
+                                    //为了保持可读性 间隔时间
                                     Thread.sleep(1500);
                                     if (!StringUtils.isEmpty(messageBody)&&messageBody.trim().length()>4){
                                         String message = new String(messageBody.getBytes(), "utf-8");
                                         //构建消息
                                         Message msg = new Message("PushTopic", "push", "key_" , message.getBytes());
                                         SendResult result = producer.send(msg);
-
                                         System.out.println("发送响应：MsgId:" + result.getMsgId() + "，发送状态:" + result.getSendStatus());
                                     }
-
                                 }
-
                             }catch (Exception e){
-
+                                e.printStackTrace();
                             }
                         }
-                   // }
+                    }
                 };
                 Thread thread = new Thread(runnable);
                 thread.start();

@@ -41,8 +41,5 @@ public class ChartController {
     public void handleChart(@DestinationVariable String userName, ChartContent chartContent){
         System.out.println("11111111");
         simpMessagingTemplate.convertAndSendToUser(chartContent.getListener(),"/chartPrivate",chartContent);
-
     }
-
-
 }
